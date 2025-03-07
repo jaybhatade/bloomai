@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FiZap, FiLayout, FiCpu, FiPlay, FiAward, FiTrendingUp, FiImage } from 'react-icons/fi';
 import Bento from '../Compo/Bento';
+import Hero from '../Sections/Hero';
 
 const FeatureCard = ({ icon: Icon, title, description }) => (
   <div className="p-6 bg-gray-800/50 border border-gray-700 hover:border-blue-500 rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-500/10">
@@ -73,6 +74,7 @@ function Home() {
   return (
     <div className="min-h-screen bg-gray-950 text-white">
 
+      <Hero />
 
       <div className="container mx-auto px-4 py-24 border-t border-gray-800">
         <div className="grid md:grid-cols-3 gap-8">
