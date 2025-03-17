@@ -35,8 +35,11 @@ const vertex = /* glsl */ `
     vRandom = random;
     vColor = color;
     
+    // Create a donut shape by pushing particles away from center
     vec3 pos = position * uSpread;
     pos.z *= 10.0;
+    float centerDistance = length(pos.xy);
+    pos.xy *= mix(1.2, 2.0, smoothstep(0.3, 0.7, centerDistance));
     
     vec4 mPos = modelMatrix * vec4(pos, 1.0);
     float t = uTime;
@@ -62,15 +65,10 @@ const fragment = /* glsl */ `
     vec2 uv = gl_PointCoord.xy;
     float d = length(uv - vec2(0.5));
     
-    if(uAlphaParticles < 0.5) {
-      if(d > 0.5) {
-        discard;
-      }
-      gl_FragColor = vec4(vColor + 0.2 * sin(uv.yxx + uTime + vRandom.y * 6.28), 1.0);
-    } else {
-      float circle = smoothstep(0.5, 0.4, d) * 0.8;
-      gl_FragColor = vec4(vColor + 0.2 * sin(uv.yxx + uTime + vRandom.y * 6.28), circle);
-    }
+    // Make particles lighter and more transparent
+    float circle = smoothstep(0.5, 0.4, d) * 0.6;
+    vec3 lightColor = vColor * 1.5; // Increase brightness
+    gl_FragColor = vec4(lightColor + 0.1 * sin(uv.yxx + uTime + vRandom.y * 6.28), circle);
   }
 `;
 
@@ -81,9 +79,9 @@ const Particles = ({
   particleColors,
   moveParticlesOnHover = false,
   particleHoverFactor = 1,
-  alphaParticles = false,
-  particleBaseSize = 100,
-  sizeRandomness = 1,
+  alphaParticles = false, // Default to true for transparency
+  particleBaseSize = 80, // Smaller base size
+  sizeRandomness = 0.8, // Less randomness
   cameraDistance = 20,
   disableRotation = false,
   className,
