@@ -4,6 +4,7 @@ import { FiZap, FiLayout, FiCpu, FiPlay, FiAward, FiTrendingUp, FiImage } from '
 import Bento from '../Compo/Bento';
 import Hero from '../Sections/Hero';
 
+
 const FeatureCard = ({ icon: Icon, title, description }) => (
   <div className="p-6 bg-gray-800/50 border border-gray-700 hover:border-blue-500 rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-500/10">
     <div className="flex items-center gap-4 mb-4">
@@ -28,6 +29,7 @@ const ProductImageCard = ({ src, productName }) => (
         </div>
   </div>
 );
+
 
 
 function Home() {
@@ -125,7 +127,7 @@ function Home() {
           </div>
         </div>
       </div>
-
+      
       {/* CTA Section */}
       <div className="container mx-auto px-4 py-24 border-t border-gray-800">
         <div className="relative overflow-hidden rounded-3xl group hover:shadow-2xl transition-all duration-500">
