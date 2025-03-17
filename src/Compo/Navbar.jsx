@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -64,38 +65,22 @@ function Navbar() {
                 whileHover={{ scale: 1.05 }}
                 className="text-white text-xl font-bold"
               >
-                WealthAI
+                Bloom Budget
               </motion.div>
 
-              {/* Desktop Menu */}
-              <div className="hidden md:flex items-center space-x-6">
-                <motion.a
-                  href="#home"
-                  variants={linkVariants}
-                  whileHover="hover"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Home
-                </motion.a>
-                <motion.a
-                  href="#about"
-                  variants={linkVariants}
-                  whileHover="hover"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  About
-                </motion.a>
-              </div>
-
               {/* Get Started Button */}
-              <motion.a 
-                href="#get-started" 
+              <motion.div 
                 variants={linkVariants}
                 whileHover="hover"
-                className="hidden md:block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                className="hidden md:block"
               >
-                Get Started
-              </motion.a>
+                <Link
+                  to="/app"
+                  className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                >
+                  Get Started
+                </Link>
+              </motion.div>
 
               {/* Mobile Menu Button */}
               <motion.button 
@@ -118,27 +103,16 @@ function Navbar() {
                   transition={{ duration: 0.2, ease: 'easeInOut' }}
                   className="md:hidden overflow-hidden"
                 >
-                  <motion.a 
-                    href="#home" 
+                  <motion.div 
                     variants={linkVariants}
-                    className="block px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white"
                   >
-                    Home
-                  </motion.a>
-                  <motion.a 
-                    href="#about" 
-                    variants={linkVariants}
-                    className="block px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white"
-                  >
-                    About
-                  </motion.a>
-                  <motion.a 
-                    href="#get-started" 
-                    variants={linkVariants}
-                    className="block px-4 py-2 mt-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
-                  >
-                    Get Started
-                  </motion.a>
+                    <Link
+                      to="/app"
+                      className="block px-4 py-2 mt-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+                    >
+                      Get Started
+                    </Link>
+                  </motion.div>
                 </motion.div>
               )}
             </AnimatePresence>

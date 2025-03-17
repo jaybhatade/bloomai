@@ -33,7 +33,7 @@ const Bento = () => {
         transition={{ duration: 0.5 }}
         className="text-3xl md:text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
       >
-        The reviews speak for themselves
+        Features
       </motion.h2>
 
       <motion.div 
@@ -136,7 +136,7 @@ const Bento = () => {
             <div className="w-[60%] md:w-[65%] flex items-center justify-center">
               <motion.img 
                 src='/ai.png' 
-                className='rounded-tl-xl h-[200px] w-[200px] scale-115 relative top-2'
+                className='rounded-tl-xl h-[200px] scale-115 relative top-2'
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}

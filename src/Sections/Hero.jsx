@@ -1,6 +1,7 @@
 import { motion } from "framer-motion"
 import { Download, User } from "lucide-react"
 import Particles from "../Compo/Particles"
+import { Link } from "react-router-dom"
 
 export default function Hero() {
   return (
@@ -40,11 +41,12 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-
-            <div className="px-8 py-3 border border-blue-500 text-white hover:bg-sky-500/20 rounded-lg font-semibold flex items-center justify-center cursor-pointer transition-colors duration-300">
-              <User className="mr-2 h-5 w-5" />
-              Get Started
-            </div>
+            <Link to="/app">
+              <div className="px-8 py-3 border border-blue-500 text-white hover:bg-sky-500/20 rounded-lg font-semibold flex items-center justify-center cursor-pointer transition-colors duration-300">
+                <User className="mr-2 h-5 w-5" />
+                Get Started
+              </div>
+            </Link>
           </motion.div>
         </div>
       </div>
